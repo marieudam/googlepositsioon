@@ -9,6 +9,13 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Sisesta märksõna, mida otsid:");
-		String input = sc.nextLine();
+		String input1 = sc.nextLine();
+		System.out.println("Sisesta piirkond, kust otsid:");
+		String input2 = sc.nextLine();
+		// Programm guugeldab sisestatud parameetritele vastavaid tulemusi
+		System.out.println("Sisesta domeen:");
+		String input3 = sc.nextLine();
+		// Programm otsib Google'i tulemustest sobiva tulemuse välja ning kuvab selle positsiooni
+
     }
 }
