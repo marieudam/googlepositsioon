@@ -1,3 +1,7 @@
-# i200 Google’i otsitulemuse positsiooni leidmine
+# i200 Googleâ€™i otsitulemuse positsiooni leidmine
 
-Minu projekti täpsem kirjeldus.
+Projekti idee tuleneb sellest, et tunnen taolise programmi jï¿½rele oma tï¿½ï¿½s reaalset vajadust.
+
+Nimelt tegelen oma igapï¿½evatï¿½ï¿½s muuhulgas ka internetiturundusega, mille juures mï¿½ngib olulist rolli SEO (search engine optimization). SEO tï¿½hendab minu jaoks pï¿½hiliselt seda, et ettevï¿½tte kodulehekï¿½lg tuleb nii hï¿½sti ï¿½ra optimeerida, et kui guugeldatakse meie teenusega seotud mï¿½rksï¿½na, siis mida eespool otsingutulemustes meie kodulehekï¿½lg on, seda parem. Kodulehel optimeeritakse kï¿½ik lehed ja blogipostitused eraldi erinevatele mï¿½rksï¿½nadele. Et mï¿½rksï¿½nade positsioonidest ja positsioonide muutumisest ajas oleks mingi ï¿½levaade, siis tuleb aeg-ajalt neid mï¿½rksï¿½nu ise guugeldada (teen seda ï¿½ldjuhul kord kuus), et nï¿½ha, mitmendal positsioonil vastavale mï¿½rksï¿½nale optimeeritud postitus vï¿½i lehekï¿½lg parasjagu on. Kuna aga lehti ja postitusi on palju ning Google (ega teised tï¿½ï¿½riistad) ei vï¿½imalda vï¿½ga kiiresti sobiva otsingutulemuse jï¿½rjekorranumbrit leida, siis igakuiselt ca 50 mï¿½rksï¿½na niiviisi guugeldada on ï¿½sna tï¿½ï¿½tu ja aeganï¿½udev.
+
+Seega projekti idee: teha programm, mis leiab kiiresti ja ilma suurema inimesepoolse sekkumiseta kindlate postituste/lehekï¿½lgede jï¿½rjekorranumbri Google'i otsingus. Parim oleks, kui ta teeks seda iga kuu automaatselt ning tï¿½idaks vastavat tabelit, kus on kirjas nt postitus-mï¿½rksï¿½na-positsioon. Aga tï¿½iesti okei oleks ka see, kui mï¿½rksï¿½na programmi sisestamise jï¿½rel ilmuks kohe vastava postituse jï¿½rjekorranumber Google'i otsingutulemuses (selline tï¿½ï¿½riist on kï¿½ll tegelikult juba tï¿½itsa olemas, aga mis seal ikka). Noh, ja siis luua programmile korralik UI.
