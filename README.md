@@ -1,16 +1,6 @@
-# i200 Google’i otsitulemuse positsiooni leidmine
-
-<<<<<<< HEAD
-Projekti idee tuleneb sellest, et tunnen taolise programmi j�rele oma t��s reaalset vajadust.
-
-Nimelt tegelen oma igap�evat��s muuhulgas ka internetiturundusega, mille juures m�ngib olulist rolli SEO (search engine optimization). SEO t�hendab minu jaoks p�hiliselt seda, et ettev�tte kodulehek�lg tuleb nii h�sti �ra optimeerida, et kui guugeldatakse meie teenusega seotud m�rks�na, siis mida eespool otsingutulemustes meie kodulehek�lg on, seda parem. Kodulehel optimeeritakse k�ik lehed ja blogipostitused eraldi erinevatele m�rks�nadele. Et m�rks�nade positsioonidest ja positsioonide muutumisest ajas oleks mingi �levaade, siis tuleb aeg-ajalt neid m�rks�nu ise guugeldada (teen seda �ldjuhul kord kuus), et n�ha, mitmendal positsioonil vastavale m�rks�nale optimeeritud postitus v�i lehek�lg parasjagu on. Kuna aga lehti ja postitusi on palju ning Google (ega teised t��riistad) ei v�imalda v�ga kiiresti sobiva otsingutulemuse j�rjekorranumbrit leida, siis igakuiselt ca 50 m�rks�na niiviisi guugeldada on �sna t��tu ja aegan�udev.
-
-Seega projekti idee: teha programm, mis leiab kiiresti ja ilma suurema inimesepoolse sekkumiseta kindlate postituste/lehek�lgede j�rjekorranumbri Google'i otsingus. Parim oleks, kui ta teeks seda iga kuu automaatselt ning t�idaks vastavat tabelit, kus on kirjas nt postitus-m�rks�na-positsioon. Aga t�iesti okei oleks ka see, kui m�rks�na programmi sisestamise j�rel ilmuks kohe vastava postituse j�rjekorranumber Google'i otsingutulemuses (selline t��riist on k�ll tegelikult juba t�itsa olemas, aga mis seal ikka). Noh, ja siis luua programmile korralik UI.
-=======
 Projekti idee tuleneb sellest, et tunnen taolise programmi järele oma töös reaalset vajadust.
 
 Nimelt tegelen oma igapäevatöös muuhulgas ka internetiturundusega, mille juures mängib olulist rolli SEO (search engine optimization). SEO tähendab minu jaoks põhiliselt seda, et ettevõtte kodulehekülg tuleb nii hästi ära optimeerida, et kui guugeldatakse meie teenusega seotud märksõna, siis mida eespool otsingutulemustes meie kodulehekülg on, seda parem. Kodulehel optimeeritakse kõik lehed ja blogipostitused eraldi erinevatele märksõnadele. Et märksõnade positsioonidest ja positsioonide muutumisest ajas oleks mingi ülevaade, siis tuleb aeg-ajalt neid märksõnu ise guugeldada (teen seda üldjuhul kord kuus), et näha, mitmendal positsioonil vastavale märksõnale optimeeritud postitus või lehekülg parasjagu on. Kuna aga lehti ja postitusi on palju ning Google (ega teised tööriistad) ei võimalda väga kiiresti sobiva otsingutulemuse järjekorranumbrit leida, siis igakuiselt ca 50 märksõna niiviisi guugeldada on üsna tüütu ja aeganõudev.
 
 Seega projekti idee: teha programm, mis leiab kiiresti ja ilma suurema inimesepoolse sekkumiseta kindlate postituste/lehekülgede järjekorranumbri Google'i otsingus. Parim oleks, kui ta teeks seda iga kuu automaatselt ning täidaks vastavat tabelit, kus on kirjas nt postitus-märksõna-positsioon. Aga täiesti okei oleks ka see, kui märksõna programmi sisestamise järel ilmuks kohe vastava postituse järjekorranumber Google'i otsingutulemuses (selline tööriist on küll tegelikult juba täitsa olemas, aga mis seal ikka). Noh, ja siis luua programmile korralik UI.
->>>>>>> 23c2ddbc8f4149fcb270d37df7400df0992c554d
 
