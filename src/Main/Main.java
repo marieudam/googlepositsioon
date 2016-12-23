@@ -4,8 +4,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -26,8 +24,8 @@ public class Main {
         return kogum;
     }
 
-    public static int positsiooniTagastus(String[] sisend) throws Exception {
-        final Document dokument = Jsoup.connect("https://google.ee/search?q=aedes").userAgent(USER_AGENT).get();
+    public static void positsiooniTagastus(String[] sisend) throws Exception {
+        final Document dokument = Jsoup.connect("https://google.ee/search?q=" + sisend[0] +"&num=25").userAgent(USER_AGENT).get();
 
         //Traverse the results
         int count = 0;
@@ -51,12 +49,11 @@ public class Main {
         if (loplikUrl != sisend[1]) {
             System.out.println("Tulemust ei leitud.");
         }
-        return count;
     }
 
     public static void main(String[] args) throws Exception {
         String[] testkogum = {"aedes", "http://www.aedes.ee/"};
-        System.out.println(positsiooniTagastus(testkogum));
+        positsiooniTagastus(testkogum);
 
     }
 }
