@@ -4,8 +4,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import java.util.Scanner;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -17,6 +15,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     Button nupp;
+    Button nupp2;
     Stage aken;
 
     //@Override
@@ -33,20 +32,9 @@ public class Main extends Application {
     //String USER_AGENT on final - st selle väärtus ei muutu programmi jooksul
     public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0";
 
-    public static String[] kasutajaSisendid() {
-
-    Scanner scan = new Scanner(System.in);
-    System.out.println("Sisesta märksõna:");
-    String keyword = scan.next();
-    Scanner scan2 = new Scanner(System.in);
-    System.out.println("Sisesta domeeninimi:");
-    String domeen = scan2.next();
-    String[] kogum = {keyword, domeen};
-    return kogum;
-    }
 
     public static int positsiooniTagastus(String[] sisend) throws Exception {
-        final Document dokument = Jsoup.connect("https://google.ee/search?q=" + sisend[0] + "&num=25").userAgent(USER_AGENT).get();
+        final Document dokument = Jsoup.connect("https://google.ee/search?q=" + sisend[0] + "&num=1000").userAgent(USER_AGENT).get();
 
         //Traverse the results
         int count = 0;
@@ -75,6 +63,7 @@ public class Main extends Application {
         return tulemus;
     }
 
+
     //public static void main(String[] args) throws Exception {
     public static void main(String[] args) throws Exception {
         launch(args);
@@ -89,94 +78,128 @@ public class Main extends Application {
         }
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+
         aken = primaryStage;
-        aken.setTitle("Märksõna positsiooni leidja");
+        aken.setTitle("Märksõna positsiooni kontrollija");
 
         GridPane raamistik = new GridPane();
-        raamistik.setPadding(new Insets(10, 10, 10, 10));
-        raamistik.setVgap(10);
-        raamistik.setHgap(10);
+        raamistik.setPadding(new Insets(20, 20, 20, 20));
+        raamistik.setVgap(20);
+        raamistik.setHgap(20);
+
+        Scene stseen = new Scene(raamistik, 600, 400);
+        aken.setScene(stseen);
+        aken.show();
 
         //Märksõna tekst
-        Label tekst1 = new Label("Sisesta märksõna:");
-        GridPane.setConstraints(tekst1, 0, 0);
+        //Label tekst1 = new Label("Sisesta märksõna:");
+        //GridPane.setConstraints(tekst1, 0, 0);
 
         //Märksõna lahter
-        TextField lahter1 = new TextField();
-        lahter1.setPromptText("Märksõna");
-        GridPane.setConstraints(lahter1, 1, 0);
+        //TextField lahter1 = new TextField();
+        //lahter1.setPromptText("märksõna");
+        //GridPane.setConstraints(lahter1, 0, 1);
+
+        //Programmi pealkiri
+        Label pealkiri = new Label("Märksõna positsiooni kontrollija Google'i otsingus");
+        raamistik.setConstraints(pealkiri, 0, 0);
+
+        //Autor
+        Label nimi = new Label("Autor Marie Udam");
+        raamistik.setConstraints(nimi, 0, 1);
+
+        //Aasta
+        Label aasta = new Label("Aasta 2017");
+        raamistik.setConstraints(aasta, 0, 2);
 
         //Domeeninime tekst
-        Label tekst2 = new Label("Sisesta domeeninimi:");
-        GridPane.setConstraints(tekst2, 0, 1);
+        Label tekst2 = new Label("Domeeninimi");
+        raamistik.setConstraints(tekst2, 0, 3);
 
         //Domeeninime lahter
         TextField lahter2 = new TextField();
-        lahter2.setPromptText("Domeeninimi");
-        GridPane.setConstraints(lahter2, 1, 1);
+        lahter2.setPromptText("domeen.ee");
+        raamistik.setConstraints(lahter2, 0, 4);
 
-        //Märksõna lahter
-        Label tulemus = new Label("");
-        GridPane.setConstraints(tulemus, 0, 4);
+        //Märksõnade arvu tekst
+        Label tekst3 = new Label("Mitut märksõna korraga soovid otsida?");
+        raamistik.setConstraints(tekst3, 0, 5);
+
+        //Märksõnade arvu lahter
+        TextField lahter3 = new TextField();
+        lahter3.setPromptText("nt 6");
+        raamistik.setConstraints(lahter3, 0, 6);
+
+        //Tulemuse lahter
+        //Label tulemus = new Label("");
+        //GridPane.setConstraints(tulemus, 0, 4);
 
         //Otsingu nupp
-        nupp = new Button();
-        nupp.setText("Otsi");
+        //nupp = new Button();
+        //nupp.setText("OTSI");
         //See klass tegeleb nupuvajutuse eventidega
         //nupp.setOnAction(e -> System.out.println("Test"));
-        nupp.setOnAction(event -> {
-            String marksona = lahter1.getText();
+        //nupp.setOnAction(event -> {
+            //String marksona = lahter1.getText();
             //System.out.println(marksona);
-            String domeeninimi = lahter2.getText();
+            //String domeeninimi = lahter2.getText();
             //System.out.println(domeeninimi);
-            String [] kogum2 = {marksona, domeeninimi};
-            try {
-                tulemus.setText("Aedes on positsioonil " + String.valueOf(positsiooniTagastus(kogum2)));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            //String otsinguarv = lahter3.getText();
+            //String [] kogum2 = {marksona, domeeninimi};
+            //try {
+                //tulemus.setText("Aedes on positsioonil " + String.valueOf(positsiooniTagastus(kogum2)));
+            //} catch (Exception e) {
+                //e.printStackTrace();
+            //}
             //System.out.println(kogum2);
             //tulemus.setText("Test");
+        //});
+
+
+        Label tekstMarksona = new Label("Sisesta märksõnad");
+        GridPane raamistik2 = new GridPane();
+        raamistik2.setConstraints(tekstMarksona, 0, 0);
+        raamistik2.getChildren().add(tekstMarksona);
+        Scene stseen2 = new Scene(raamistik2, 600, 400);
+
+        Label tekstTulemus = new Label("TULEMUS");
+        GridPane raamistik3 = new GridPane();
+        raamistik3.getChildren().add(tekstTulemus);
+        Scene stseen3 = new Scene(raamistik3, 600, 400);
+
+        // Valmis nupp
+        nupp = new Button();
+        nupp.setText("VALMIS");
+        nupp.setOnAction(event -> {
+            String domeeninimi = lahter2.getText();
+            System.out.println(domeeninimi);
+            String lahtriteArv = lahter3.getText();
+            System.out.println(lahtriteArv);
+            primaryStage.setScene(stseen2);
+                });
+
+        GridPane.setConstraints(nupp, 0, 7);
+
+        raamistik.getChildren().addAll(pealkiri, nimi, aasta, tekst2, lahter2, lahter3, tekst3, nupp);
+
+        // Otsi nupp
+        nupp2 = new Button();
+        nupp2.setText("OTSI");
+        nupp2.setOnAction(event -> {
+            primaryStage.setScene(stseen3);
         });
-        GridPane.setConstraints(nupp, 1, 3);
 
+        GridPane.setConstraints(nupp2, 0, 1);
 
+        raamistik2.getChildren().add(nupp2);
 
-
-        raamistik.getChildren().addAll(tekst1, lahter1, tekst2, lahter2, nupp, tulemus);
-
-        Scene stseen = new Scene(raamistik, 400, 300);
-        aken.setScene(stseen);
-        aken.show();
     }
 
-    //@Override
-    //public void handle(ActionEvent event) {
-        //if(event.getSource()==nupp){
-            //System.out.println("Test");
-        //}
 
-    //}
+
 }
 
 
-//public class Main{
-//    public static void main(String args[]) {
-//        System.out.println("Google'i otsitulemuse positsiooni leidmine");
-//        System.out.println("Autor: Marie");
-//        System.out.println("Aasta: 2016");
-//
-//        Scanner sc = new Scanner(System.in);
-//
-//        System.out.println("Sisesta märksõna, mida otsid:");
-//        String input1 = sc.nextLine();
-//        System.out.println("Sisesta piirkond, kust otsid:");
-//        String input2 = sc.nextLine();
-//        // Programm guugeldab sisestatud parameetritele vastavaid tulemusi
-//        System.out.println("Sisesta domeen:");
-//        String input3 = sc.nextLine();
-//        // Programm otsib Google'i tulemustest sobiva tulemuse välja ning kuvab selle positsiooni
-//
-//    }
 
 
