@@ -1,5 +1,5 @@
 # Märksõna positsiooni leidja Google'i otsingus
-Autor: Marie Udam
+Autor: Marie Udam<br/>
 Aasta: 2017
 
 # Projekti kirjeldus
@@ -14,5 +14,5 @@ Tööriista eesmärgiks on kiiresti ja mugavalt leida, mitmendal positsioonil Go
 6. Avaneb ülevaade märksõnade positsioonidest Google'i otsitulemustes.
 
 # Litsents
-<img src="litsents.png" alt="Attribution-ShareAlike" style="width:88px;height:31px;">
+<img src="litsents.png" alt="Attribution-ShareAlike" style="width:88px;height:31px;"><br/>
 This work is licensed under an <a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.
