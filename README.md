@@ -1,8 +1,18 @@
-# Google'i otsingupositsiooni leidmine
+# Märksõna positsiooni leidja Google'i otsingus
+Autor: Marie Udam
+Aasta: 2017
 
-Projekti idee tuleneb sellest, et tunnen taolise programmi järele oma töös reaalset vajadust.
+# Projekti kirjeldus
+Tööriista eesmärgiks on kiiresti ja mugavalt leida, mitmendal positsioonil Google'i otsimootoris Sinu (või Sinu ettevõtte) veebisait paikneb, kui sisestada otsingusse kindlaid märksõnu, millega lehekülg peaks leitav olema. Seega selle asemel, et käsitsi märksõnade positsioone otsida, teeb programm selle töö kiiresti ära. Selline tööriist võib vajalikuks osutuda internetiturunduse valdkonnas, kus märksõnade postisioonid on SEO (<i>search engine optimization</i>) seisukohalt olulised ning on hea neist ülevaadet omada.
 
-Nimelt tegelen oma igapäevatöös muuhulgas ka internetiturundusega, mille juures mängib olulist rolli SEO (search engine optimization). SEO tähendab minu jaoks põhiliselt seda, et ettevõtte kodulehekülg tuleb nii hästi ära optimeerida, et kui guugeldatakse meie teenusega seotud märksõna, siis mida eespool otsingutulemustes meie kodulehekülg on, seda parem. Kodulehel optimeeritakse kõik lehed ja blogipostitused eraldi erinevatele märksõnadele. Et märksõnade positsioonidest ja positsioonide muutumisest ajas oleks mingi ülevaade, siis tuleb aeg-ajalt neid märksõnu ise guugeldada (teen seda üldjuhul kord kuus), et näha, mitmendal positsioonil vastavale märksõnale optimeeritud postitus või lehekülg parasjagu on. Kuna aga lehti ja postitusi on palju ning Google (ega teised tööriistad) ei võimalda väga kiiresti sobiva otsingutulemuse järjekorranumbrit leida, siis igakuiselt ca 50 märksõna niiviisi guugeldada on üsna tüütu ja aeganõudev.
+# Kasutusjuhend
+1. Sisesta lahtrisse "Domeeninimi" veebilehekülje aadress, mille märksõnade positsioone soovid analüüsida.
+2. Sisesta lahtrisse "Mitut märksõna korraga soovid otsida?" kontrollitavate märksõnade arv.
+3. Kliki "VALMIS".
+4. Järgmisel lehel avaneb soovitud hulgal lahtreid, millesse tuleb otsitavad märksõnad sisestada.
+5. Kui märksõnad on sisestatud, kliki "VALMIS".
+6. Avaneb ülevaade märksõnade positsioonidest Google'i otsitulemustes.
 
-Seega projekti idee: teha programm, mis leiab kiiresti ja ilma suurema inimesepoolse sekkumiseta kindlate postituste/lehekülgede järjekorranumbri Google'i otsingus. Parim oleks, kui ta teeks seda iga kuu automaatselt ning täidaks vastavat tabelit, kus on kirjas nt postitus-märksõna-positsioon. Aga täiesti okei oleks ka see, kui märksõna programmi sisestamise järel ilmuks kohe vastava postituse järjekorranumber Google'i otsingutulemuses (selline tööriist on küll tegelikult juba täitsa olemas, aga mis seal ikka). Noh, ja siis luua programmile korralik UI.
-
+# Litsents
+<img src="litsents.png" alt="Attribution-ShareAlike" style="width:88px;height:31px;">
+This work is licensed under an <a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.
