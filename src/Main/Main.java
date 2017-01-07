@@ -1,5 +1,6 @@
 package Main;
 
+import javafx.scene.control.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,19 +12,20 @@ import javafx.scene.text.Text;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 import static com.sun.javafx.util.Utils.contains;
+import static com.sun.javafx.util.Utils.sum;
 
 public class Main extends Application {
     Paring otsing = new Paring();
     Marksona[] tulemused;
+
+
 
     //Vaja on sisestada reaalne brauseri kasutajaagent, muidu annab Google errori 403 - Forbidden Request
     //Kasutajaagenti läheb vaja meetodis positsiooniTagastus
@@ -36,7 +38,7 @@ public class Main extends Application {
     public static int positsiooniTagastus(String sisend, String domeen) throws IOException {
         //Loon ühenduse Jsoupi library'ga
         //Tulemuseks on Google'i otsitulemuste HTML kood
-        final Document dokument = Jsoup.connect("https://google.ee/search?q=" + sisend + "&num=1000").userAgent(USER_AGENT).get();
+        final Document dokument = Jsoup.connect("https://google.ee/search?q=" + sisend + "&num=100").userAgent(USER_AGENT).get();
 
         int loendur = 0;
         int loplikPositsioon = 0;
@@ -45,8 +47,10 @@ public class Main extends Application {
             String url = result.attr("href");
             loendur++;
 
-            if (contains(url, domeen) & loplikPositsioon == 0) {
+            if (contains(url, domeen)) {
                 loplikPositsioon = loendur;
+                break;
+
             }
         }
         return loplikPositsioon;
@@ -69,7 +73,7 @@ public class Main extends Application {
         raamistik.setVgap(20);
         raamistik.setHgap(20);
 //
-        Scene stseen = new Scene(raamistik, 600, 400);
+        Scene stseen = new Scene(raamistik, 370, 400);
         aken.setScene(stseen);
         aken.show();
 //
@@ -100,7 +104,10 @@ public class Main extends Application {
         raamistik.setConstraints(lahter3, 1, 2);
         lahter3.setPrefWidth(128);
 
-       GridPane raamistik2 = new GridPane();
+        GridPane raamistik2 = new GridPane();
+        raamistik2.setPadding(new Insets(20, 20, 20, 20));
+        raamistik2.setVgap(20);
+        raamistik2.setHgap(20);
 
         Label tekstMarksona = new Label("Sisesta märksõnad");
 
@@ -113,15 +120,20 @@ public class Main extends Application {
         raamistik2.setConstraints(tekstMarksona, 0, 0);
 
         raamistik2.getChildren().add(tekstMarksona);
-        Scene stseen2 = new Scene(raamistik2, 600, 400);
+        Scene stseen2 = new Scene(raamistik2, 400, 400);
 
 
 
         // Raamistik 3
-        Label tekstTulemus = new Label("TULEMUS");
+        Text tekstTulemus = new Text("Tulemused");
+
+        tekstTulemus.setFont(new Font("Verdana", 14));
+        //tekstTulemus.setFill(Color.DARKBLUE);
+
+
         GridPane raamistik3 = new GridPane();
         raamistik3.getChildren().add(tekstTulemus);
-        Scene stseen3 = new Scene(raamistik3, 600, 400);
+        Scene stseen3 = new Scene(raamistik3, 400, 400);
 
         //Valmis nupp
         Button nupp = new Button();
@@ -137,13 +149,15 @@ public class Main extends Application {
             tulemused = new Marksona[otsing.getMarksonu()];
 
 
+            int summa = 0;
             for (int i = 0; i < tulemused.length; i++){
                 tulemused[i] = new Marksona();
                 tulemused[i].setNupp(new TextField());
                 raamistik2.setConstraints(tulemused[i].getNupp(), 0, i);
                 raamistik2.getChildren().add(tulemused[i].getNupp());
+                summa++;
+                }
 
-            }
 
 
             primaryStage.setScene(stseen2);
@@ -157,39 +171,33 @@ public class Main extends Application {
         // Otsi nupp
         Button nupp2 = new Button();
         nupp2.setText("OTSI");
+        nupp2.setPrefWidth(170);
         nupp2.setOnAction(event -> {
+
+
             for (int i = 0; i < tulemused.length; i++){
+
                 tulemused[i].lahtriSisuSoneks();
 
                 try {
                     int asukoht = positsiooniTagastus(tulemused[i].getMarksonaString(), otsing.getDomeen());
                     tulemused[i].setMarksonaVaartus(asukoht);
                     tulemused[i].tulemuseVormistamine();
-                    raamistik3.setConstraints(tulemused[i].getTulemus(), 0, i+1);
+                    raamistik3.setConstraints(tulemused[i].getTulemus(), 1, i+1);
                     raamistik3.getChildren().add(tulemused[i].getTulemus());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
 
             }
 
             primaryStage.setScene(stseen3);
         });
 
-        GridPane.setConstraints(nupp2, 1, 0);
 
+        GridPane.setConstraints(nupp2, 1, 0);
         raamistik2.getChildren().add(nupp2);
 
-//        String[] testkogum = {"veebiportaal", "aedes.ee"};
-//        System.out.println("Positsioon: "+ positsiooniTagastus(testkogum));
-//        Paring otsing2 = new Paring();
-//        Marksona[] tulemused2 = new Marksona[10];
-//        System.out.println(tulemused2);
-//        tulemused2[1] = new Marksona();
-//        tulemused2[1].setMarksonaString("test");
-//        System.out.println(tulemused2[1].getMarksonaString());
     }
 
 }

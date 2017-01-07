@@ -13,7 +13,7 @@ public class Marksona {
 
     public void tulemuseVormistamine(){
         this.tulemus = new Text();
-        this.tulemus.setText(this.marksonaString+": "+Integer.toString(this.marksonaVaartus));
+        this.tulemus.setText(this.marksonaString+":\t"+Integer.toString(this.marksonaVaartus));
     }
 
     public void lahtriSisuSoneks(){
