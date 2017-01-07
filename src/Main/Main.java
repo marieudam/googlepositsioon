@@ -1,6 +1,7 @@
 package Main;
 
 import javafx.geometry.HPos;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
@@ -176,22 +177,22 @@ public class Main extends Application {
         //});
 
 
-        int marknumber = 20;
-        TextField[] test = new TextField[marknumber];
-        System.out.println(test);
-        for (int i = 1; i< marknumber; i++){
-
-            test[i]= new TextField();
-            System.out.println(i);
-        }
-
+//        int marknumber = 0;
+//        TextField[] test = new TextField[marknumber];
+//        System.out.println(test);
+//        for (int i = 1; i< marknumber; i++){
+//
+//            test[i]= new TextField();
+//            System.out.println(i);
+//        }
+//
         GridPane raamistik2 = new GridPane();
-        for ( int i = 1; i< marknumber; i++){
-
-            raamistik2.setConstraints(test[i], 0, i);
-            raamistik2.getChildren().add(test[i]);
-            System.out.println(i);
-        }
+//        for ( int i = 1; i< marknumber; i++){
+//
+//            raamistik2.setConstraints(test[i], 0, i);
+//            raamistik2.getChildren().add(test[i]);
+//            System.out.println(i);
+//        }
 
         //Märsõna sisestamise tekst
         Label tekstMarksona = new Label("Sisesta märksõnad");
@@ -224,7 +225,22 @@ public class Main extends Application {
             String domeen = lahter2.getText();
             domeeninimi = domeen;
             String lahtriteArv = lahter3.getText();
-            System.out.println(lahtriteArv);
+            int testInt = Integer.parseInt(lahtriteArv);
+            int marknumber = testInt;
+            TextField[] test = new TextField[marknumber];
+            for (int i = 1; i< marknumber; i++){
+
+                test[i]= new TextField();
+                //System.out.println(i);
+            }
+
+            for ( int i = 1; i< marknumber; i++){
+
+                raamistik2.setConstraints(test[i], 0, i);
+                raamistik2.getChildren().add(test[i]);
+            }
+            //marknumber = lahtriteArv;
+            //System.out.println(lahtriteArv);
             primaryStage.setScene(stseen2);
                 });
 
@@ -255,7 +271,7 @@ public class Main extends Application {
                     e.printStackTrace();
                 }
                 //for (String element : kogum2) {
-                    arv = arv + 1;
+                    //arv = arv + 1;
                 //}
             }
 
