@@ -7,10 +7,10 @@ Tööriista eesmärgiks on kiiresti ja mugavalt leida, mitmendal positsioonil Go
 
 # Kasutusjuhend
 1. Sisesta lahtrisse "Domeeninimi" veebilehekülje aadress, mille märksõnade positsioone soovid analüüsida.
-2. Sisesta lahtrisse "Mitut märksõna korraga soovid otsida?" kontrollitavate märksõnade arv.
+2. Sisesta lahtrisse "Märksõnade arv" kontrollitavate märksõnade arv.
 3. Kliki "VALMIS".
-4. Järgmisel lehel avaneb soovitud hulgal lahtreid, millesse tuleb otsitavad märksõnad sisestada.
-5. Kui märksõnad on sisestatud, kliki "VALMIS".
+4. Järgmises vaates avaneb soovitud hulgal lahtreid, millesse tuleb otsitavad märksõnad sisestada.
+5. Kui märksõnad on sisestatud, kliki "OTSI".
 6. Avaneb ülevaade märksõnade positsioonidest Google'i otsitulemustes.
 
 # Litsents
