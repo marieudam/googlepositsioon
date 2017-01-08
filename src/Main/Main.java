@@ -142,10 +142,11 @@ public class Main extends Application {
             //Returnib märksõnade arvu int'i -> ütleb, mitu elementi listis on
             tulemused = new Marksona[otsing.getMarksonu()];
 
-            //For-tsükkel, mis esmalt teeb iga tulemuse jaoks uue Märksõna-tüüpi listi
-            //ja lisab iga märksõna jaoks uue lahtri
+
             for (int i = 0; i < tulemused.length; i++){
+                //Esmalt teen iga tulemuse jaoks uue Märksõna-tüüpi listi
                 tulemused[i] = new Marksona();
+                //ja lisan iga märksõna jaoks uue lahtri
                 tulemused[i].setLahter(new TextField());
                 raamistik2.setConstraints(tulemused[i].getLahter(), 0, i+1);
                 raamistik2.getChildren().add(tulemused[i].getLahter());
@@ -167,12 +168,13 @@ public class Main extends Application {
 
         //Sündmus, mis käivitub nupule vajutades
         nupp2.setOnAction(event -> {
-            //...
             for (int i = 0; i < tulemused.length; i++){
+                //Rakendan igale tulemusele meetodi, mis võtab lahtrist märksõna
                 tulemused[i].lahtriSisuSoneks();
                 try {
                     int asukoht = positsiooniTagastus(tulemused[i].getMarksonaString(), otsing.getDomeen());
-                    tulemused[i].setMarksonaVaartus(asukoht);
+                    //Annan tulemusele kohal i väärtuseks asukoha (väärtus, mis positsioonil märksõna Google'is on)
+                    tulemused[i].setMarksonaPositsioon(asukoht);
                     tulemused[i].tulemuseVormistamine();
                     raamistik3.setConstraints(tulemused[i].getTulemus(), 0, i+1);
                     raamistik3.getChildren().add(tulemused[i].getTulemus());
