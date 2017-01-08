@@ -135,32 +135,39 @@ public class Main extends Application {
 
         //Sündmus, mis käivitub nupule vajutades
         nupp.setOnAction(event -> {
+            //Moodustub String domeen
             otsing.setDomeen(lahter.getText());
+            //Moodustub int marksonu
             otsing.setMarksonu(Integer.parseInt(lahter2.getText()));
+            //Returnib märksõnade arvu int'i -> ütleb, mitu elementi listis on
             tulemused = new Marksona[otsing.getMarksonu()];
 
+            //For-tsükkel, mis esmalt teeb iga tulemuse jaoks uue Märksõna-tüüpi listi
+            //ja lisab iga märksõna jaoks uue lahtri
             for (int i = 0; i < tulemused.length; i++){
                 tulemused[i] = new Marksona();
-                tulemused[i].setNupp(new TextField());
-                raamistik2.setConstraints(tulemused[i].getNupp(), 0, i+1);
-                raamistik2.getChildren().add(tulemused[i].getNupp());
+                tulemused[i].setLahter(new TextField());
+                raamistik2.setConstraints(tulemused[i].getLahter(), 0, i+1);
+                raamistik2.getChildren().add(tulemused[i].getLahter());
                 }
 
                 primaryStage.setScene(stseen2);
 
         });
 
+        //Nupu VALMIS asukoht
         GridPane.setConstraints(nupp, 0, 3);
 
         raamistik.getChildren().addAll(pealkiri, tekst, lahter, lahter2, tekst2, nupp);
 
-        // Otsi nupp (raamistik 2)
+        //Otsi nupp (raamistik 2)
         Button nupp2 = new Button();
         nupp2.setText("OTSI");
         nupp2.setPrefWidth(170);
 
         //Sündmus, mis käivitub nupule vajutades
         nupp2.setOnAction(event -> {
+            //...
             for (int i = 0; i < tulemused.length; i++){
                 tulemused[i].lahtriSisuSoneks();
                 try {

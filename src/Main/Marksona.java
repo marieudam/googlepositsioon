@@ -6,7 +6,7 @@ import java.lang.*;
 public class Marksona {
     private String marksonaString;
     private int marksonaVaartus;
-    private TextField nupp;
+    private TextField lahter;
     private Text tulemus;
 
     public void tulemuseVormistamine(){
@@ -15,7 +15,7 @@ public class Marksona {
     }
 
     public void lahtriSisuSoneks(){
-        this.marksonaString = this.nupp.getText();
+        this.marksonaString = this.lahter.getText();
     }
 
     public Text getTulemus() {
@@ -26,12 +26,12 @@ public class Marksona {
         this.tulemus = tulemus;
     }
 
-    public TextField getNupp() {
-        return nupp;
+    public TextField getLahter() {
+        return lahter;
     }
 
-    public void setNupp(TextField nupp) {
-        this.nupp = nupp;
+    public void setLahter(TextField lahter) {
+        this.lahter = lahter;
     }
 
     public String getMarksonaString() {
