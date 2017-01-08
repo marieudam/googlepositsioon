@@ -1,31 +1,26 @@
 package Main;
 
-import javafx.scene.control.*;
+import java.io.IOException;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import javafx.scene.control.*;
 import javafx.geometry.HPos;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
-import javax.swing.*;
-import java.io.IOException;
-
 import static com.sun.javafx.util.Utils.contains;
-import static com.sun.javafx.util.Utils.sum;
+
 
 public class Main extends Application {
     Paring otsing = new Paring();
     Marksona[] tulemused;
-
-
 
     //Vaja on sisestada reaalne brauseri kasutajaagent, muidu annab Google errori 403 - Forbidden Request
     //Kasutajaagenti läheb vaja meetodis positsiooniTagastus
@@ -37,23 +32,21 @@ public class Main extends Application {
     //http://mph-web.de/web-scraping-with-java-top-10-google-search-results/
     public static int positsiooniTagastus(String sisend, String domeen) throws IOException {
         //Loon ühenduse Jsoupi library'ga
-        //Tulemuseks on Google'i otsitulemuste HTML kood
+        //Tulemuseks (dokument) on Google'i otsitulemuste HTML kood
         final Document dokument = Jsoup.connect("https://google.ee/search?q=" + sisend + "&num=100").userAgent(USER_AGENT).get();
 
         int loendur = 0;
-        int loplikPositsioon = 0;
-        for (Element result : dokument.select("h3.r a")) {
+        //Kogu HTMList saan kätte ühe otsingutulemuse URLi ja pealkirja
+        for (Element tulemus : dokument.select("h3.r > a")) {
 
-            String url = result.attr("href");
+            String url = tulemus.attr("href");
             loendur++;
 
             if (contains(url, domeen)) {
-                loplikPositsioon = loendur;
                 break;
-
             }
         }
-        return loplikPositsioon;
+        return loendur;
     }
 
 
@@ -61,143 +54,132 @@ public class Main extends Application {
         launch(args);
     }
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-//
-//
+
+        //Aken
         Stage aken = primaryStage;
         aken.setTitle("Märksõna positsiooni kontrollija");
 
+        //Raamistik1
         GridPane raamistik = new GridPane();
         raamistik.setPadding(new Insets(20, 20, 20, 20));
         raamistik.setVgap(20);
         raamistik.setHgap(20);
-//
+
         Scene stseen = new Scene(raamistik, 370, 400);
         aken.setScene(stseen);
         aken.show();
-//
-//        //Programmi pealkiri
-        Text pealkiri = new Text("Märksõna positsiooni leidja Google'i otsingus");
+
+        //Programmi pealkiri
+        Label pealkiri = new Label("Märksõna positsiooni leidja Google'i otsingus");
         pealkiri.setFont(Font.font ("Verdana", 14));
-        pealkiri.setFill(Color.DARKBLUE);
+        pealkiri.setTextFill(Color.DARKBLUE);
         raamistik.setConstraints(pealkiri, 0, 0);
         raamistik.setColumnSpan(pealkiri, 2);
         raamistik.setHalignment(pealkiri, HPos.LEFT);
-//
-//        //Domeeninime tekst
-        Label tekst2 = new Label("Domeeninimi");
-        raamistik.setConstraints(tekst2, 0, 1);
-//
-//        //Domeeninime lahter
-        TextField lahter2 = new TextField();
-        lahter2.setPromptText("domeen.ee");
-        raamistik.setConstraints(lahter2, 0, 2);
-//
-//        //Märksõnade arvu tekst
-        Label tekst3 = new Label("Märksõnade arv");
-        raamistik.setConstraints(tekst3, 1, 1);
-//
-//        //Märksõnade arvu lahter
-        TextField lahter3 = new TextField();
-        lahter3.setPromptText("nt 6");
-        raamistik.setConstraints(lahter3, 1, 2);
-        lahter3.setPrefWidth(128);
 
+        //Domeeninime tekst
+        Label tekst = new Label("Domeeninimi");
+        raamistik.setConstraints(tekst, 0, 1);
+
+        //Domeeninime lahter
+        TextField lahter = new TextField();
+        lahter.setPromptText("domeen.ee");
+        raamistik.setConstraints(lahter, 0, 2);
+
+        //Märksõnade arvu tekst
+        Label tekst2 = new Label("Märksõnade arv");
+        raamistik.setConstraints(tekst2, 1, 1);
+
+        //Märksõnade arvu lahter
+        TextField lahter2 = new TextField();
+        lahter2.setPromptText("nt 6");
+        raamistik.setConstraints(lahter2, 1, 2);
+        lahter2.setPrefWidth(128);
+
+        //Raamistik2
         GridPane raamistik2 = new GridPane();
         raamistik2.setPadding(new Insets(20, 20, 20, 20));
         raamistik2.setVgap(20);
         raamistik2.setHgap(20);
 
+        //Märksõnade sisestamise tekst
         Label tekstMarksona = new Label("Sisesta märksõnad");
-
-//        //Märksõna sisestamise lahter
-//        TextField marksonaLahter = new TextField();
-//
-//        //Teine märksõna sisestamise lahter
-//        TextField marksonaLahter2 = new TextField();
 
         raamistik2.setConstraints(tekstMarksona, 0, 0);
 
         raamistik2.getChildren().add(tekstMarksona);
         Scene stseen2 = new Scene(raamistik2, 400, 400);
 
-
-
         // Raamistik 3
-        Text tekstTulemus = new Text("Tulemused");
-
-        tekstTulemus.setFont(new Font("Verdana", 14));
-        //tekstTulemus.setFill(Color.DARKBLUE);
-
-
         GridPane raamistik3 = new GridPane();
+
+        //Tulemuste pealkiri
+        Label tekstTulemus = new Label("Tulemused");
+        tekstTulemus.setFont(new Font("Verdana", 14));
+        tekstTulemus.setTextFill(Color.DARKBLUE);
+
+        raamistik3.setPadding(new Insets(20, 20, 20, 20));
+        raamistik3.setVgap(20);
         raamistik3.getChildren().add(tekstTulemus);
         Scene stseen3 = new Scene(raamistik3, 400, 400);
 
-        //Valmis nupp
+        //Valmis nupp (raamistik1)
         Button nupp = new Button();
         nupp.setText("VALMIS");
         raamistik.setColumnSpan(nupp, 2);
         raamistik.setHalignment(nupp, HPos.CENTER);
         nupp.setPrefWidth(328);
+
+        //Sündmus, mis käivitub nupule vajutades
         nupp.setOnAction(event -> {
-
-
-            otsing.setDomeen(lahter2.getText());
-            otsing.setMarksonu(Integer.parseInt(lahter3.getText()));
+            otsing.setDomeen(lahter.getText());
+            otsing.setMarksonu(Integer.parseInt(lahter2.getText()));
             tulemused = new Marksona[otsing.getMarksonu()];
 
-
-            int summa = 0;
             for (int i = 0; i < tulemused.length; i++){
                 tulemused[i] = new Marksona();
                 tulemused[i].setNupp(new TextField());
-                raamistik2.setConstraints(tulemused[i].getNupp(), 0, i);
+                raamistik2.setConstraints(tulemused[i].getNupp(), 0, i+1);
                 raamistik2.getChildren().add(tulemused[i].getNupp());
-                summa++;
                 }
 
+                primaryStage.setScene(stseen2);
 
-
-            primaryStage.setScene(stseen2);
         });
 
         GridPane.setConstraints(nupp, 0, 3);
 
+        raamistik.getChildren().addAll(pealkiri, tekst, lahter, lahter2, tekst2, nupp);
 
-        raamistik.getChildren().addAll(pealkiri, tekst2, lahter2, lahter3, tekst3, nupp);
-
-        // Otsi nupp
+        // Otsi nupp (raamistik 2)
         Button nupp2 = new Button();
         nupp2.setText("OTSI");
         nupp2.setPrefWidth(170);
+
+        //Sündmus, mis käivitub nupule vajutades
         nupp2.setOnAction(event -> {
-
-
             for (int i = 0; i < tulemused.length; i++){
-
                 tulemused[i].lahtriSisuSoneks();
-
                 try {
                     int asukoht = positsiooniTagastus(tulemused[i].getMarksonaString(), otsing.getDomeen());
                     tulemused[i].setMarksonaVaartus(asukoht);
                     tulemused[i].tulemuseVormistamine();
-                    raamistik3.setConstraints(tulemused[i].getTulemus(), 1, i+1);
+                    raamistik3.setConstraints(tulemused[i].getTulemus(), 0, i+1);
                     raamistik3.getChildren().add(tulemused[i].getTulemus());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
 
             primaryStage.setScene(stseen3);
+
         });
 
-
-        GridPane.setConstraints(nupp2, 1, 0);
+        GridPane.setConstraints(nupp2, 1, 1);
         raamistik2.getChildren().add(nupp2);
 
     }
-
 }

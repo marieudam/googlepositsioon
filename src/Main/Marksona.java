@@ -2,9 +2,7 @@ package Main;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import java.lang.*;
-/**
- * Created by User on 07.01.2017.
- */
+
 public class Marksona {
     private String marksonaString;
     private int marksonaVaartus;
@@ -27,7 +25,6 @@ public class Marksona {
     public void setTulemus(Text tulemus) {
         this.tulemus = tulemus;
     }
-
 
     public TextField getNupp() {
         return nupp;
