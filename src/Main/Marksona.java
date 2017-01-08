@@ -5,13 +5,13 @@ import java.lang.*;
 
 public class Marksona {
     private String marksonaString;
-    private int marksonaVaartus;
+    private int marksonaPositsioon;
     private TextField lahter;
     private Text tulemus;
 
     public void tulemuseVormistamine(){
         this.tulemus = new Text();
-        this.tulemus.setText(this.marksonaString+":\t"+Integer.toString(this.marksonaVaartus));
+        this.tulemus.setText(this.marksonaString+":\t"+Integer.toString(this.marksonaPositsioon));
     }
 
     public void lahtriSisuSoneks(){
@@ -38,15 +38,15 @@ public class Marksona {
         return marksonaString;
     }
 
-    public int getMarksonaVaartus() {
-        return marksonaVaartus;
+    public int getMarksonaPositsioon() {
+        return marksonaPositsioon;
     }
 
     public void setMarksonaString(String marksonaString) {
         this.marksonaString = marksonaString;
     }
 
-    public void setMarksonaVaartus(int marksonaVaartus) {
-        this.marksonaVaartus = marksonaVaartus;
+    public void setMarksonaPositsioon(int marksonaPositsioon) {
+        this.marksonaPositsioon = marksonaPositsioon;
     }
 }
