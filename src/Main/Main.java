@@ -15,6 +15,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
 import static com.sun.javafx.util.Utils.contains;
 
 
@@ -30,12 +31,13 @@ public class Main extends Application {
     //Järgmises meetodis on HTMLi parsimiseks kasutatud Java library Jsoup
     //Koodi kirjutamisel võtsin eeskuju postitusest MPH WEBi blogis aadressil
     //http://mph-web.de/web-scraping-with-java-top-10-google-search-results/
-    public static int positsiooniTagastus(String sisend, String domeen) throws IOException {
+    public static int positsiooniTagastus(String kasutajaMarksona, String domeen) throws IOException {
         //Loon ühenduse Jsoupi library'ga
         //Tulemuseks (dokument) on Google'i otsitulemuste HTML kood
-        final Document dokument = Jsoup.connect("https://google.ee/search?q=" + sisend + "&num=100").userAgent(USER_AGENT).get();
+        final Document dokument = Jsoup.connect("https://google.ee/search?q=" + kasutajaMarksona + "&num=100").userAgent(USER_AGENT).get();
 
         int loendur = 0;
+        int positsiooniTagastus = 0;
         //Kogu HTMList saan kätte ühe otsingutulemuse URLi ja pealkirja
         for (Element tulemus : dokument.select("h3.r > a")) {
 
@@ -43,12 +45,12 @@ public class Main extends Application {
             loendur++;
 
             if (contains(url, domeen)) {
+                positsiooniTagastus = loendur;
                 break;
             }
         }
-        return loendur;
+        return positsiooniTagastus;
     }
-
 
     public static void main(String[] args) throws Exception {
         launch(args);
