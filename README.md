@@ -3,7 +3,7 @@ Autor: Marie Udam<br>
 Aasta: 2017
 
 # Projekti kirjeldus
-Tööriista eesmärgiks on kiiresti ja mugavalt leida, mitmendal positsioonil Google'i otsimootoris Sinu (või Sinu ettevõtte) veebisait paikneb, kui sisestada otsingusse kindlaid märksõnu, millega lehekülg peaks leitav olema. Seega selle asemel, et käsitsi märksõnade positsioone otsida, teeb programm selle töö kiiresti ära. Selline tööriist võib vajalikuks osutuda internetiturunduse valdkonnas, kus märksõnade postisioonid on SEO (<i>search engine optimization</i>) seisukohalt olulised ning on hea neist ülevaadet omada.
+Tööriista eesmärgiks on kiiresti ja mugavalt leida, mitmendal positsioonil Google'i otsimootoris Sinu (või Sinu ettevõtte) veebisait paikneb, kui sisestada otsingusse kindlaid märksõnu, millega lehekülg peaks leitav olema. Seega selle asemel, et käsitsi märksõnade positsioone otsida, teeb programm selle töö kiiresti ära. Selline tööriist võib vajalikuks osutuda internetiturunduse valdkonnas, kus märksõnade postisioonid on SEO (<i>search engine optimization</i>) seisukohalt olulised.
 
 # Kasutusjuhend
 1. Sisesta lahtrisse "Domeeninimi" veebilehekülje aadress, mille märksõnade positsioone soovid analüüsida.
